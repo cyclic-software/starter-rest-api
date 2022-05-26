@@ -1,7 +1,8 @@
 const express = require("express");
+const app = express();
 const helmet = require("helmet");
 
-const app = express();
+const db = require("cyclic-dynamodb")
 
 app.use(helmet())
 app.use(express.json())
@@ -20,6 +21,11 @@ app.use(express.urlencoded())
 // }
 // app.use(express.static('public', options))
 // #############################################################################
+
+app.get('/:col', async (req,res) => {
+  let items = db.collection(req.params.col).list()
+  res.json(items)
+})
 
 // Catch all handler for all other request.
 app.use('*', (req,res) => {
