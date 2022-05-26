@@ -23,7 +23,9 @@ app.use(express.urlencoded())
 // #############################################################################
 
 app.get('/:col', async (req,res) => {
-  let items = db.collection(req.params.col).list()
+  console.log(req.params)
+  let items = await db.collection(req.params['col']).list()
+  console.log(JSON.stringify(items,null,2))
   res.json(items)
 })
 
