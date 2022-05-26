@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env-cmd node index.js"
   },
   "keywords": [],
   "author": "Kam Lasater <kam.lasater@cyclic.sh>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "helmet": "^5.1.0"
+  }
 }
