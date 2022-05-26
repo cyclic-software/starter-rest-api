@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "env-cmd node index.js"
+    "dev": "env-cmd node index.js",
+    "lint" : "./node_modules/.bin/eslint"
   },
   "keywords": [],
   "author": "Kam Lasater <kam.lasater@cyclic.sh>",
