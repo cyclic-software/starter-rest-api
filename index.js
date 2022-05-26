@@ -26,7 +26,7 @@ app.use(express.urlencoded())
 app.get('/:col/:key', async (req,res) => {
   let col = req.params.col
   let key = req.params.key
-  console.log(`from collection: ${col} get key: ${key} with params ${req.params}`)
+  console.log(`from collection: ${col} get key: ${key} with params ${JSON.stringify(req.params)}`)
   let item = await db.collection(col).get(key)
   console.log(JSON.stringify(item,null,2))
   res.json(item).end()
@@ -34,7 +34,7 @@ app.get('/:col/:key', async (req,res) => {
 
 app.get('/:col', async (req,res) => {
   let col = req.params.col
-  console.log(`list collection: ${col} with params: ${req.params}`)
+  console.log(`list collection: ${col} with params: ${JSON.stringify(req.params)}`)
   let items = await db.collection(col).list()
   console.log(JSON.stringify(items,null,2))
   res.json(items).end()
