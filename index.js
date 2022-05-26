@@ -1,8 +1,8 @@
-const express = require("express");
-const app = express();
-const helmet = require("helmet");
+const express = require('express')
+const app = express()
+const helmet = require('helmet')
 
-const db = require("cyclic-dynamodb")
+const db = require('cyclic-dynamodb')
 
 app.use(helmet())
 app.use(express.json())
@@ -22,27 +22,26 @@ app.use(express.urlencoded())
 // app.use(express.static('public', options))
 // #############################################################################
 
-
-app.get('/:col/:key', async (req,res) => {
+app.get('/:col/:key', async (req, res) => {
   let col = req.params.col
-  let key = req.params.key
+  const key = req.params.key
   console.log(`from collection: ${col} get key: ${key} with params ${JSON.stringify(req.params)}`)
-  let item = await db.collection(col).get(key)
-  console.log(JSON.stringify(item,null,2))
+  const item = await db.collection(col).get(key)
+  console.log(JSON.stringify(item, null, 2))
   res.json(item).end()
 })
 
-app.get('/:col', async (req,res) => {
-  let col = req.params.col
+app.get('/:col', async (req, res) => {
+  const col = req.params.col
   console.log(`list collection: ${col} with params: ${JSON.stringify(req.params)}`)
-  let items = await db.collection(col).list()
-  console.log(JSON.stringify(items,null,2))
+  const items = await db.collection(col).list()
+  console.log(JSON.stringify(items, null, 2))
   res.json(items).end()
 })
 
 // Catch all handler for all other request.
-app.use('*', (req,res) => {
-  res.json({"msg":"no route handler found"}).end()
+app.use('*', (req, res) => {
+  res.json({ msg: 'no route handler found' }).end()
 })
 
 const port = process.env.PORT || 3000

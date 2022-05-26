@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd nodemon index.js",
-    "lint": "./node_modules/.bin/eslint",
+    "lint": "./node_modules/.bin/eslint --fix .",
     "prepare": "husky install",
     "repl": "env-cmd node"
   },
