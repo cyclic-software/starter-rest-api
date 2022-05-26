@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "env-cmd nodemon index.js",
     "lint": "./node_modules/.bin/eslint",
+    "prepare": "husky install",
     "repl": "env-cmd node"
   },
   "keywords": [],
@@ -18,6 +19,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.1",
     "nodemon": "^2.0.16"
   },
   "dependencies": {
