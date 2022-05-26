@@ -6,7 +6,7 @@ const db = require('cyclic-dynamodb')
 
 app.use(helmet())
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
@@ -23,7 +23,6 @@ app.use(express.urlencoded({extended: true}))
 // #############################################################################
 
 app.post('/:col/:key', async (req, res) => {
-
   console.log(req.body)
 
   const col = req.params.col
@@ -33,7 +32,6 @@ app.post('/:col/:key', async (req, res) => {
   console.log(JSON.stringify(item, null, 2))
   res.json(item).end()
 })
-
 
 app.delete('/:col/:key', async (req, res) => {
   const col = req.params.col
