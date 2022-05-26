@@ -25,6 +25,7 @@
   "dependencies": {
     "cyclic-dynamodb": "0.0.21",
     "express": "^4.18.1",
+    "express-jsonschema": "^1.1.6",
     "helmet": "^5.1.0"
   }
 }
