@@ -19,22 +19,11 @@ app.use(express.urlencoded({ extended: true }))
 // app.use(express.static('public', options))
 // #############################################################################
 
-async function getstuff() {
 
-	const db = new CyclicDb("red-cockroach-tuxCyclicDB")
-
-	const animals = db.collection("animals")
-
-	// get an item at key "leo" from collection animals
-	let item = await animals.get("leo")
-	console.log(item)	
-
-}
 
 app.get('/user/:userId', async (req, res) => {
   req.params;
   res.json(req.params);
-  await getstuff();
 });
 
 // Create or Update an item
