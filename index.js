@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const CyclicDb = require('cyclic-dynamodb')
-const db = CyclicDb("red-cockroach-tuxCyclicDB");
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -20,9 +19,22 @@ app.use(express.urlencoded({ extended: true }))
 // app.use(express.static('public', options))
 // #############################################################################
 
+async function getstuff() {
+
+	const db = CyclicDb("red-cockroach-tuxCyclicDB")
+
+	const animals = db.collection("animals")
+
+	// get an item at key "leo" from collection animals
+	let item = await animals.get("leo")
+	console.log(item)	
+
+}
+
 app.get('/user/:userId', (req, res) => {
   req.params;
   res.json(req.params);
+  await getstuff();
 });
 
 // Create or Update an item
@@ -52,7 +64,8 @@ app.delete('/:col/:key', async (req, res) => {
 app.get('/:col/:key', async (req, res) => {
   const col = req.params.col
   const key = req.params.key
-  console.log(`from collection: ${col} get key: ${key} with params ${JSON.stringify(req.params)}`)
+  console.log(`from collection: ${col} get key: ${key} with params ${JSON.stringify(req.params)}`);
+  const db = CyclicDb("red-cockroach-tuxCyclicDB");
   const coldb = db.collection(col);
   const item = await coldb.get(key)
   console.log(JSON.stringify(item, null, 2))
