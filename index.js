@@ -31,7 +31,7 @@ async function getstuff() {
 
 }
 
-app.get('/user/:userId', (req, res) => {
+app.get('/user/:userId', async (req, res) => {
   req.params;
   res.json(req.params);
   await getstuff();
