@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 
 async function getstuff() {
 
-	const db = CyclicDb("red-cockroach-tuxCyclicDB")
+	const db = new CyclicDb("red-cockroach-tuxCyclicDB")
 
 	const animals = db.collection("animals")
 
@@ -65,7 +65,7 @@ app.get('/:col/:key', async (req, res) => {
   const col = req.params.col
   const key = req.params.key
   console.log(`from collection: ${col} get key: ${key} with params ${JSON.stringify(req.params)}`);
-  const db = CyclicDb("red-cockroach-tuxCyclicDB");
+  const db = new CyclicDb("red-cockroach-tuxCyclicDB");
   const coldb = db.collection(col);
   const item = await coldb.get(key)
   console.log(JSON.stringify(item, null, 2))
