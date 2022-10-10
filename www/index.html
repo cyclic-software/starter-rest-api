@@ -1,0 +1,27 @@
+<style>body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}</style>
+<h1>Starter REST Api</h1>
+
+This is an example REST Api designed to be deployed on Cyclic.sh
+
+Deploy to Cyclic
+
+<h2>Examples</h2>
+
+<h3>Create/Update - Insert/Upsert</h3>
+
+curl -i https://localhost:3000/animals/rin%20tin%20tin \
+    --data '{"breed":"German Shepard", "gender": "male"}' \
+    -XPOST -H 'Content-Type: application/json'
+
+
+<h3>Read All - List</h3>
+
+curl -i https://localhost:3000/animals
+
+<h3>Read</h3>
+
+curl -i https://localhost:3000/animals/lassy
+
+<h3>Delete</h3>
+
+curl -i -XDELETE https://localhost:3000/animals/lassy
