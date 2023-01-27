@@ -87,5 +87,6 @@ app.use('*', (req, res) => {
 // Start the server
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-  console.log(`Server listening on ${port}`)
+  console.log(`Server listening on ${port}`);
+  console.log(`App token is ${APP_TOKEN}`)
 })
