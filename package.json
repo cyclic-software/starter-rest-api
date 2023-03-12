@@ -1,7 +1,7 @@
 {
   "name": "starter-rest-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Service for sokker.org requests",
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd nodemon index.js",
