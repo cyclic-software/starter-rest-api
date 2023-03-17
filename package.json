@@ -1,8 +1,9 @@
 {
-  "name": "starter-rest-api",
+  "name": "weight-insight-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "env-cmd nodemon index.js",
     "repl": "env-cmd node"

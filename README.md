@@ -32,3 +32,8 @@ curl -i https://localhost:3000/animals/lassy
 ```shell
 curl -i -XDELETE https://localhost:3000/animals/lassy
 ```
+
+## Temp
+'''
+https://larswaechter.dev/blog/nodejs-rest-api-structure/
+'''

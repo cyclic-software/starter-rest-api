@@ -1,6 +1,8 @@
-const express = require('express')
+import express from "express";
+import db from "cyclic-dynamodb";
+// const express = require('express')
 const app = express()
-const db = require('@cyclic.sh/dynamodb')
+// const db = require('@cyclic.sh/dynamodb')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
