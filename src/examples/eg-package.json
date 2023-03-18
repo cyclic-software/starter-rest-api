@@ -1,0 +1,31 @@
+{
+    "name": "bikes-api",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "env-cmd nodemon index.js",
+      "fill-db": "env-cmd node fill-db.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/eludadev/bikes-api.git"
+    },
+    "license": "MIT",
+    "homepage": "https://bikes.cyclic.app/",
+    "dependencies": {
+      "cyclic-dynamodb": "^0.0.27",
+      "express": "^4.17.1",
+      "jsonwebtoken": "^8.5.1",
+      "runtypes": "^6.6.0",
+      "slugify": "^1.6.5",
+      "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+      "@faker-js/faker": "^7.5.0",
+      "env-cmd": "^10.1.0",
+      "nodemon": "^2.0.19"
+    }
+  }
+  
