@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { Record, String, Number, Boolean, Date } from "runtypes";
-import { authenticateUser } from "../auth/auth.js";
+import { Record, String, Number, Boolean } from "runtypes";
+// import { authenticateUser } from "../auth/auth.js";
 import DynamoDb from "cyclic-dynamodb";
 import { Router } from "express";
 
@@ -47,7 +47,7 @@ router.get("/:id", async (req, res) => {
 const GameData = Record({
     name: String,
     info: String,
-    startDate: Date,
+    startDate: String,
     numberOfWeights: Number,
     weightFrequency: String,
     minWeightLoss: Number,
@@ -60,7 +60,7 @@ const GameData = Record({
 });
 
 // Post new game
-router.post("/", authenticateUser, async (req, res) => {
+router.post("/", async (req, res) => {
     const gameData = req.body;
 
     try {
@@ -96,7 +96,7 @@ router.post("/", authenticateUser, async (req, res) => {
 // ------------------------------------
 
 // Update entire game
-router.put("/:id", authenticateUser, async (req, res) => {
+router.put("/:id", async (req, res) => {
     const gameId = req.params.id;
     const gameData = req.body;
 
@@ -137,7 +137,7 @@ router.put("/:id", authenticateUser, async (req, res) => {
 // ------------------------------------
 
 // Delete game if it exists
-router.delete("/:id", authenticateUser, async (req, res) => {
+router.delete("/:id", async (req, res) => {
     const gameId = req.params.id;
 
     try {

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { Record, String, Number, Date } from "runtypes";
-import { authenticateUser } from "../auth/auth.js";
+import { Record, String, Number } from "runtypes";
+// import { authenticateUser } from "../auth/auth.js";
 import DynamoDb from "cyclic-dynamodb";
 import { Router } from "express";
 
@@ -48,14 +48,14 @@ const ParticipantData = Record({
     user: String,
     game: String,
     weightGoal: Number,
-    vacationStart: Date,
+    vacationStart: String,
     status: String,
     // weights: PlayerWeight[]
     // payments: Payment[]
 });
 
 // Post new participant
-router.post("/", authenticateUser, async (req, res) => {
+router.post("/", async (req, res) => {
     const participantData = req.body;
 
     try {
@@ -91,7 +91,7 @@ router.post("/", authenticateUser, async (req, res) => {
 // ------------------------------------
 
 // Update entire participant
-router.put("/:id", authenticateUser, async (req, res) => {
+router.put("/:id", async (req, res) => {
     const participantId = req.params.id;
     const participantData = req.body;
 
@@ -132,7 +132,7 @@ router.put("/:id", authenticateUser, async (req, res) => {
 // ------------------------------------
 
 // Delete participant if it exists
-router.delete("/:id", authenticateUser, async (req, res) => {
+router.delete("/:id", async (req, res) => {
     const participantId = req.params.id;
 
     try {

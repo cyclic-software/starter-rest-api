@@ -1,5 +1,5 @@
 import { Record, String } from "runtypes";
-import { authenticateUser } from "../auth/auth.js";
+// import { authenticateUser } from "../auth/auth.js";
 import DynamoDb from "cyclic-dynamodb";
 import { Router } from "express";
 
@@ -49,7 +49,7 @@ const GameUserData = Record({
 });
 
 // Post new user
-router.post("/", authenticateUser, async (req, res) => {
+router.post("/", async (req, res) => {
     const userData = req.body;
 
     try {
@@ -62,9 +62,9 @@ router.post("/", authenticateUser, async (req, res) => {
         const userObject = GameUserData.check(userData);
 
         // Save user object
-        await usersCollection.set(email, userObject);
+        await usersCollection.set(userObject.email, userObject);
 
-        res.send(user);
+        res.send(userObject);
     } catch (e) {
         console.log(e.message);
         res.sendStatus(400);
@@ -76,7 +76,7 @@ router.post("/", authenticateUser, async (req, res) => {
 // ------------------------------------
 
 // Update entire user
-router.put("/:email", authenticateUser, async (req, res) => {
+router.put("/:email", async (req, res) => {
     const userEmail = req.params.email;
     const userData = req.body;
 
@@ -117,7 +117,7 @@ router.put("/:email", authenticateUser, async (req, res) => {
 // ------------------------------------
 
 // Delete user if she or he exists
-router.delete("/:email", authenticateUser, async (req, res) => {
+router.delete("/:email", async (req, res) => {
     const userEmail = req.params.email;
 
     try {
