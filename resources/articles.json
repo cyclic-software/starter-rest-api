@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "title": "EPF vs PPF vs NPS - Which is the best investment option?",
+        "subTitle": "What is an investment? Understanding the basics of investing",
+        "cover_image": "https://zimpler-assets.s3.ap-south-1.amazonaws.com/banner-images/nivesh-1.png",
+        "tag_list": [
+            "investment",
+            "EPF",
+            "PPF",
+            "NPS",
+            "money"
+        ],
+        "url": "",
+        "comments_count": 0,
+        "positive_reactions_count": 0,
+        "public_reactions_count": 0,
+        "author": {
+            "name": "Shruti Gautam",
+            "avatar": "https://example.com/images/johndoe.jpg"
+        },
+        "published_at": "2023-01-01T12:00:00Z",
+        "body": "https://zimpler-assets.s3.ap-south-1.amazonaws.com/posts-markdown/nivesh-1.md"
+    },
+    {
+        "id": 2,
+        "title": "Vaccines and its History",
+        "subTitle": "How world's first vaccine was developed",
+        "cover_image": "",
+        "tag_list": [
+            "vaccines",
+            "immunity",
+            "pandemic"
+        ],
+        "url": "",
+        "comments_count": 0,
+        "positive_reactions_count": 0,
+        "public_reactions_count": 0,
+        "author": {
+            "name": "Shruti Gautam",
+            "avatar": "https://example.com/images/janesmith.jpg"
+        },
+        "published_at": "2023-01-01T12:00:00Z",
+        "body": "https://zimpler-assets.s3.ap-south-1.amazonaws.com/posts-markdown/vaccine.md"
+    },
+    {
+        "id": 3,
+        "title": "Best of the Silver Screen",
+        "subTitle": "Top Movies of 2022 for movie buffs",
+        "cover_image": "",
+        "tag_list": [
+            "movies",
+            "RRR",
+            "topmovies",
+            "2022"
+        ],
+        "url": "",
+        "comments_count": 0,
+        "positive_reactions_count": 0,
+        "public_reactions_count": 0,
+        "author": {
+            "name": "Shruti Gautam",
+            "avatar": "https://example.com/images/alexjohnson.jpg"
+        },
+        "published_at": "2023-01-01T12:00:00Z",
+        "body": "https://zimpler-assets.s3.ap-south-1.amazonaws.com/posts-markdown/movies.md"
+    },
+    {
+        "id": 4,
+        "title": "Top places to visit in India during summers",
+        "subTitle": "Best places to visit in India during summers",
+        "cover_image": "",
+        "tag_list": [
+            "manali",
+            "shimla",
+            "summer",
+            "trip",
+            "india"
+        ],
+        "url": "",
+        "comments_count": 0,
+        "positive_reactions_count": 0,
+        "public_reactions_count": 0,
+        "author": {
+            "name": "Shruti Gautam",
+            "avatar": "https://example.com/images/alexjohnson.jpg"
+        },
+        "published_at": "2023-03-19T12:00:00Z",
+        "body": "https://zimpler-assets.s3.ap-south-1.amazonaws.com/posts-markdown/places-to-visit-in-summers-in-india.md"
+    },
+    {
+        "id": 5,
+        "title": "RCB Women's Powerhouse Performance Seals Must-Win Match Against Gujarat Giants in WPL 2023",
+        "subTitle": "An Unstoppable Innings by Sophie Devine Leads RCB Women to Victory",
+        "cover_image": "",
+        "tag_list": [
+            "WRCB",
+            "GGT",
+            "WPL",
+            "sophie",
+            "cricket"
+        ],
+        "url": "",
+        "comments_count": 0,
+        "positive_reactions_count": 0,
+        "public_reactions_count": 0,
+        "author": {
+            "name": "Shruti Gautam",
+            "avatar": ""
+        },
+        "published_at": "2023-03-19T12:01:00Z",
+        "body": "https://zimpler-assets.s3.ap-south-1.amazonaws.com/posts-markdown/rcb-vs-ggt.md"
+    }
+]

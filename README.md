@@ -32,3 +32,5 @@ curl -i https://localhost:3000/animals/lassy
 ```shell
 curl -i -XDELETE https://localhost:3000/animals/lassy
 ```
+#### command to run the server
+node index.js
