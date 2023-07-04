@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: true }))
 // #############################################################################
 
 // Create or Update an item
+app.get('/',async(req,res)=>{
+  res.send("helo")
+})
 app.post('/:col/:key', async (req, res) => {
   console.log(req.body)
 
