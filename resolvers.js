@@ -1,11 +1,11 @@
 const resolvers = {
     Query: {
         users: async (_, __, { dataSources }) => {
-            const users = await dataSources.db.collection("users").list();
-            return users.map((user) => ({
-                id: user.id,
-                ...user
-            }));
+            const { results: userData } = await dataSources.db.collection("users").list();
+            const users = await Promise.all(
+                userData.map(async ({ key }) => (await userData.get(key)).props)
+              );
+            return users;
         },
         getUserById: async (_, { userId }, { dataSources }) => {
             try {
