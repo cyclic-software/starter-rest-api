@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Results</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="left-container">
+        <h2>Game Results</h2>
+
+        <label for="gameName">Game Name:</label>
+        <input type="text" id="gameName" placeholder="Enter game name">
+
+        <label for="playerX">Abdullahi won:</label>
+        <input type="number" id="playerX" value="0">
+
+        <label for="playerY">Mohamed won:</label>
+        <input type="number" id="playerY" value="0">
+
+        <button onclick="addRow()">Submit</button>
+    </div>
+
+    <div id="right-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Abdullahi</th>
+                    <th>Mohamed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% gameResults.forEach(result=> { %>
+                    <tr>
+                        <td>
+                            <%= result.game %>
+                        </td>
+                        <td>
+                            <%= result.playerX %>
+                        </td>
+                        <td>
+                            <%= result.playerY %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function addRow() {
+            const timestamp = new Date().getTime(); // Get current timestamp
+            const randomPart = Math.floor(Math.random() * 1000); // Generate a random number (adjust as needed)
+            const uniqueId = `${timestamp}-${randomPart}`;
+
+            // Get values from input fields
+            var gameName = document.getElementById('gameName').value;
+            var abdullahi = document.getElementById('playerX').value;
+            var mohamed = document.getElementById('playerY').value;
+
+            const update = {
+                gameName,
+                abdullahi,
+                mohamed,
+                uniqueId,
+            };
+
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(update),
+            };
+
+            fetch(`/${gameName}/${uniqueId}`, options)
+                .then(data => {
+                    if (!data.ok) {
+                        throw Error(data.status);
+                    }
+                    return data.json();
+                }).then(update => {
+                    alert("success. data was added to the table")
+                    console.log(update);
+                }).catch(e => {
+                    alert("there was an error. pls look at console")
+                    console.log(e);
+                });
+
+            // Clear input fields
+            document.getElementById('gameName').value = '';
+            document.getElementById('playerX').value = '0';
+            document.getElementById('playerY').value = '0';
+        }
+    </script>
+</body>
+
+</html>

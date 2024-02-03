@@ -4,19 +4,20 @@ const db = require('@cyclic.sh/dynamodb')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.set('view engine', 'ejs');
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
 // listed in the array.
-// var options = {
-//   dotfiles: 'ignore',
-//   etag: false,
-//   extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
-//   index: ['index.html'],
-//   maxAge: '1m',
-//   redirect: false
-// }
-// app.use(express.static('public', options))
+var options = {
+  dotfiles: 'ignore',
+  etag: false,
+  extensions: ['htm', 'html', 'css', 'js', 'ico', 'jpg', 'jpeg', 'png', 'svg'],
+  index: ['index.html'],
+  maxAge: '1m',
+  redirect: false
+}
+app.use(express.static('public', options))
 // #############################################################################
 
 // Create or Update an item
@@ -59,6 +60,22 @@ app.get('/:col', async (req, res) => {
   console.log(JSON.stringify(items, null, 2))
   res.json(items).end()
 })
+
+app.get('/', (req, res) => {
+  fetch(`/jaipur`)
+    .then(data => {
+      if (!data.ok) {
+        throw Error(data.status);
+      }
+      return data.json();
+    }).then(update => {    
+      res.render('index', { update });
+    })
+    .catch(error => {
+      console.log(error)
+      res.render('error', {error})
+    })  
+});
 
 // Catch all handler for all other request.
 app.use('*', (req, res) => {
