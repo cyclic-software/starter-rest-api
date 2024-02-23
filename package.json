@@ -1,21 +1,19 @@
 {
-  "name": "starter-rest-api",
+  "name": "new-folder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "env-cmd nodemon index.js",
-    "repl": "env-cmd node"
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Kam Lasater <kam.lasater@cyclic.sh>",
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.22"
-  },
   "dependencies": {
-    "@cyclic.sh/dynamodb": "^0.0.33",
-    "env-cmd": "^10.1.0",
-    "express": "^4.18.1"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.2.0",
+    "nodemon": "^3.1.0"
   }
 }
